@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Клиент</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="notificationContainer" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; max-width: 400px;"></div>
+  <header>
+    <h1>Клиент</h1>
+    <nav>
+      <a href="/index.html">Главная</a>
+      <a id="bouquetLink" href="/bouquet.html" style="display: none;">Свой букет</a>
+      <a href="/login.html">Вход</a>
+    </nav>
+  </header>
+  <main>
+    <section id="catalogClient"></section>
+    <section id="orderForm" style="display:none">
+      <h2>Оформить заказ</h2>
+      <form id="placeOrder">
+        <input name="flowerId" type="hidden">
+        <input name="clientName" placeholder="Ваше имя" required>
+        <input name="address" placeholder="Адрес" required>
+        <input name="quantity" type="number" value="1" min="1" required>
+        <button type="submit">Заказать</button>
+      </form>
+    </section>
+  </main>
+  <script src="/script.js?v=2.0"></script>
+</body>
+</html>

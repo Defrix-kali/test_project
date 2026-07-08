@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Собрать букет</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="notificationContainer" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; max-width: 400px;"></div>
+  <header>
+    <h1>Собери свой букет</h1>
+    <nav>
+      <a href="/index.html">Главная</a>
+      <a href="/bouquet.html">Свой букет</a>
+      <a href="/login.html">Вход</a>
+    </nav>
+  </header>
+  <main>
+    <section id="bouquetBuilder">
+      <h2>Выберите цветы (штучные)</h2>
+      <div id="singleList" class="grid"></div>
+      <h3>Оформление (бумага)</h3>
+      <div id="paperList" class="grid"></div>
+      <h3>Данные для заказа</h3>
+      <form id="bouquetOrder">
+        <label>Имя клиента <input name="clientName" required></label>
+        <label>Адрес <input name="address" required></label>
+        <button type="submit">Заказать свой букет</button>
+      </form>
+    </section>
+  </main>
+  <script src="/script.js?v=2.0"></script>
+  <script>
+    // Check if client is logged in, else hide the page
+    function checkClientAuth() {
+      const userType = sessionStorage.getItem('userType');
+      const clientId = sessionStorage.getItem('clientId');
+      if (userType !== 'client' || !clientId) {
+        alert('Требуется вход в учётку для доступа к конструктору букетов');
+        window.location.href = '/login.html';
+      }
+    }
+    checkClientAuth();
+  </script>

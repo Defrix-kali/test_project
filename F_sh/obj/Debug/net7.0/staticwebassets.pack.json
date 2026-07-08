@@ -1,0 +1,121 @@
+{
+  "Files": [
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/_framework/aspnetcore-browser-refresh.js",
+      "PackagePath": "staticwebassets/_framework/aspnetcore-browser-refresh.js"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/admin.html",
+      "PackagePath": "staticwebassets/admin.html"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/bouquet.html",
+      "PackagePath": "staticwebassets/bouquet.html"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/client.html",
+      "PackagePath": "staticwebassets/client.html"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/field.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/field.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/floral.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/floral.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/garden.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/garden.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/gradient1.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/gradient1.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/gradient2.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/gradient2.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/nature.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/nature.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/backgrounds/nature2.jpg",
+      "PackagePath": "staticwebassets/images/backgrounds/nature2.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/flowers/lily.jpg",
+      "PackagePath": "staticwebassets/images/flowers/lily.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/flowers/peony.jpg",
+      "PackagePath": "staticwebassets/images/flowers/peony.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/flowers/rose.jpg",
+      "PackagePath": "staticwebassets/images/flowers/rose.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/flowers/sunflower.jpg",
+      "PackagePath": "staticwebassets/images/flowers/sunflower.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/flowers/test.jpg",
+      "PackagePath": "staticwebassets/images/flowers/test.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/flowers/tulip.jpg",
+      "PackagePath": "staticwebassets/images/flowers/tulip.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/peony.jpg",
+      "PackagePath": "staticwebassets/images/peony.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/rose.jpg",
+      "PackagePath": "staticwebassets/images/rose.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/images/tulip.jpg",
+      "PackagePath": "staticwebassets/images/tulip.jpg"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/login.html",
+      "PackagePath": "staticwebassets/login.html"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/script.js",
+      "PackagePath": "staticwebassets/script.js"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/seller.html",
+      "PackagePath": "staticwebassets/seller.html"
+    },
+    {
+      "Id": "/home/defrix/project/F_sh/wwwroot/styles.css",
+      "PackagePath": "staticwebassets/styles.css"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.FlowerShop.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.FlowerShop.props",
+      "PackagePath": "build\\FlowerShop.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.FlowerShop.props",
+      "PackagePath": "buildMultiTargeting\\FlowerShop.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.FlowerShop.props",
+      "PackagePath": "buildTransitive\\FlowerShop.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Админ</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="notificationContainer" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; max-width: 400px;"></div>
+  <header>
+    <h1>⚙️ Админ-панель</h1>
+    <nav>
+      <a href="/index.html">Главная</a>
+      <a href="/login.html">Вход</a>
+      <a href="#" id="logoutBtn" style="cursor:pointer;color:#f93b1d">Выход</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Debug panel removed (was used temporarily for tracing). -->
+    <section id="login" style="display:none">
+      <h2>Вход администратора</h2>
+      <form id="adminLogin">
+        <label>Логин <input name="login" value="admin"></label>
+        <label>Пароль <input name="password" value="admin123" type="password"></label>
+        <button type="submit">Войти</button>
+        <button type="button" id="refreshData" style="display:none;margin-left:8px">Обновить данные</button>
+        <div id="adminMessage" style="margin-top:8px;color:#333"></div>
+      </form>
+    </section>
+
+    <section id="admin-panel" style="display:none">
+      <button type="button" id="refreshData" style="margin-left:8px;margin-bottom:12px">Обновить данные</button>
+      <div id="adminMessage" style="margin-top:8px;color:#333"></div>
+    </section>
+
+    <section id="apps" style="display:none">
+      <h2>Заявки на магазины</h2>
+      <table id="appsTable">
+        <thead><tr><th>Название</th><th>Email</th><th>Действия</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="shops" style="display:none">
+      <h2>Магазины</h2>
+      <table id="shopsTable">
+        <thead><tr><th>Название</th><th>Логин</th><th>Действия</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="/script.js?v=2.0"></script>
+</body>
+</html>

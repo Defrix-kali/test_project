@@ -1,0 +1,70 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Admins" AS "a")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Clients" AS "c")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Shops" AS "s")
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:5000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/defrix/MyCsDir/M and T P/test
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 DELETE http://localhost:5000/api/flowers/dfa6d65d-9741-4671-9617-5da2c618df25?login=seller1@example.com&password=pass1 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: DELETE /api/flowers/{id}'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__login_0='?' (Size = 7), @__password_1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."Login", "s"."Name", "s"."Password"
+      FROM "Shops" AS "s"
+      WHERE "s"."Login" = @__login_0 AND "s"."Password" = @__password_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (Size = 36), @__shop_Id_1='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."Description", "f"."ImageUrl", "f"."Name", "f"."Price", "f"."SellerId", "f"."Stock", "f"."Type"
+      FROM "Flowers" AS "f"
+      WHERE "f"."Id" = @__id_0 AND "f"."SellerId" = @__shop_Id_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Flowers"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+      Setting HTTP status code 200.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: DELETE /api/flowers/{id}'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 DELETE http://localhost:5000/api/flowers/dfa6d65d-9741-4671-9617-5da2c618df25?login=seller1@example.com&password=pass1 - - - 200 0 - 476.3995ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5000/api/flowers/seller/3609ad53-29e2-46bf-b4ec-6ea72cc4f6d7 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /api/flowers/seller/{sellerId}'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__sellerId_0='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."SellerId", "f"."Name", "f"."Description", "f"."Price", "f"."ImageUrl", "f"."Type", "f"."Stock"
+      FROM "Flowers" AS "f"
+      WHERE "f"."SellerId" = @__sellerId_0
+info: Microsoft.AspNetCore.Http.Result.JsonResult[3]
+      Writing value of type 'List`1' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /api/flowers/seller/{sellerId}'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5000/api/flowers/seller/3609ad53-29e2-46bf-b4ec-6ea72cc4f6d7 - - - 200 - application/json;+charset=utf-8 197.8785ms
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

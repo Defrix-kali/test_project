@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Вход</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(120deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .form-group button:hover {
+      opacity: 0.9;
+    }
+    .message {
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .message.error {
+      background: #ffebee;
+      color: #c62828;
+    }
+    .message.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .divider {
+      margin: 20px 0;
+      text-align: center;
+      color: #999;
+    }
+    .seller-register {
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+    .seller-register h3 {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border: none;
+      background: #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tab-btn.active {
+      background: linear-gradient(120deg, #667eea, #764ba2);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="notificationContainer" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; max-width: 400px;"></div>
+  <header>
+    <h1>🌼 FlowerShop</h1>
+    <nav>
+      <a href="/index.html">Главная</a>
+      <a href="/login.html" style="background: rgba(255,255,255,0.2);">Вход</a>
+    </nav>
+  </header>
+  <main>
+    <div class="login-container">
+      <h2>Вход</h2>
+      
+      <div class="tabs">
+        <button class="tab-btn active" id="clientTab">Клиент</button>
+        <button class="tab-btn" id="sellerTab">Продавец</button>
+        <button class="tab-btn" id="adminTab">Админ</button>
+      </div>
+
+      <!-- Клиент вход -->
+      <div id="clientLogin" class="login-form">
+        <form id="clientLoginForm">
+          <div class="form-group">
+            <label>Email <input name="clientEmail" type="email" placeholder="email@example.com" required></label>
+          </div>
+          <div class="form-group">
+            <label>Пароль <input name="clientPassword" type="password" required></label>
+          </div>
+          <div class="form-group">
+            <button type="submit">Войти как клиент</button>
+          </div>
+          <div id="clientMsg"></div>
+        </form>
+
+        <div class="divider">или</div>
+
+        <div class="seller-register" style="border-top: none; padding-top: 0;">
+          <h3>Регистрация как клиент</h3>
+          <form id="clientRegisterForm">
+            <div class="form-group">
+              <label>Email <input name="regClientEmail" type="email" placeholder="email@example.com" required></label>
+            </div>
+            <div class="form-group">
+              <label>Пароль <input name="regClientPassword" type="password" required></label>
+            </div>
+            <div class="form-group">
+              <button type="submit">Зарегистрироваться</button>
+            </div>
+            <div id="clientRegMsg"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Продавец вход -->
+      <div id="sellerLogin" class="login-form" style="display:none;">
+        <form id="sellerLoginForm">
+          <div class="form-group">
+            <label>Email <input name="email" type="email" placeholder="email@example.com" required></label>
+          </div>
+          <div class="form-group">
+            <label>Пароль <input name="password" type="password" required></label>
+          </div>
+          <div class="form-group">
+            <button type="submit">Войти</button>
+          </div>
+          <div id="sellerMsg"></div>
+        </form>
+
+        <div class="divider">или</div>
+
+        <div class="seller-register">
+          <h3>Регистрация магазина</h3>
+          <form id="sellerRegisterForm">
+            <div class="form-group">
+              <label>Название магазина <input name="shopName" placeholder="Мой магазин" required></label>
+            </div>
+            <div class="form-group">
+              <label>Email <input name="shopEmail" type="email" placeholder="shop@example.com" required></label>
+            </div>
+            <div class="form-group">
+              <label>Пароль <input name="shopPassword" type="password" required></label>
+            </div>
+            <div class="form-group">
+              <button type="submit">Зарегистрировать магазин</button>
+            </div>
+            <div id="shopRegMsg"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Админ вход -->
+      <div id="adminLogin" class="login-form" style="display:none;">
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label>Email <input name="email" type="email" placeholder="admin@example.com" required></label>
+          </div>
+          <div class="form-group">
+            <label>Пароль <input name="password" type="password" required></label>
+          </div>
+          <div class="form-group">
+            <button type="submit">Войти как администратор</button>
+          </div>
+          <div id="adminMsg"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="/script.js"></script>
+  <script>
+    // Notification system (for login page)
+    function showNotification(message, type = 'info') {
+      const container = document.getElementById('notificationContainer');
+      if (!container) return;
+      
+      const notif = document.createElement('div');
+      notif.className = `notification notification-${type}`;
+      notif.style.cssText = `
+        padding: 12px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        animation: slideIn 0.3s ease-out;
+        word-break: break-word;
+      `;
+      
+      if (type === 'success') {
+        notif.style.background = '#e8f5e9';
+        notif.style.color = '#2e7d32';
+        notif.style.border = '1px solid #c8e6c9';
+      } else if (type === 'error') {
+        notif.style.background = '#ffebee';
+        notif.style.color = '#c62828';
+        notif.style.border = '1px solid #ffcdd2';
+      } else {
+        notif.style.background = '#e3f2fd';
+        notif.style.color = '#1565c0';
+        notif.style.border = '1px solid #bbdefb';
+      }
+      
+      notif.textContent = message;
+      container.appendChild(notif);
+      
+      setTimeout(() => {
+        notif.style.animation = 'slideOut 0.3s ease-out';
+        setTimeout(() => notif.remove(), 300);
+      }, 3000);
+    }
+
+    if (!document.getElementById('notificationStyles')) {
+      const style = document.createElement('style');
+      style.id = 'notificationStyles';
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(400px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(400px); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Tab switching
+    document.getElementById('clientTab').addEventListener('click', () => {
+      document.querySelectorAll('.login-form').forEach(f => f.style.display = 'none');
+      document.getElementById('clientLogin').style.display = 'block';
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('clientTab').classList.add('active');
+    });
+    document.getElementById('sellerTab').addEventListener('click', () => {
+      document.querySelectorAll('.login-form').forEach(f => f.style.display = 'none');
+      document.getElementById('sellerLogin').style.display = 'block';
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('sellerTab').classList.add('active');
+    });
+    document.getElementById('adminTab').addEventListener('click', () => {
+      document.querySelectorAll('.login-form').forEach(f => f.style.display = 'none');
+      document.getElementById('adminLogin').style.display = 'block';
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('adminTab').classList.add('active');
+    });
+
+    // Клиент вход
+    document.getElementById('clientLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = e.target.elements['clientEmail'].value;
+      const password = e.target.elements['clientPassword'].value;
+      try {
+        const resp = await fetch('/api/client/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (!resp.ok) {
+          const msg = document.getElementById('clientMsg');
+          msg.textContent = 'Неверный email или пароль';
+          msg.className = 'message error';
+          return;
+        }
+        const client = await resp.json();
+        sessionStorage.setItem('userType', 'client');
+        sessionStorage.setItem('clientId', client.id);
+        sessionStorage.setItem('clientEmail', client.email);
+        sessionStorage.removeItem('sellerEmail');
+        sessionStorage.removeItem('adminEmail');
+        showNotification(`Добро пожаловать, ${client.email}!`, 'success');
+        window.location.href = '/index.html';
+      } catch (err) {
+        const msg = document.getElementById('clientMsg');
+        msg.textContent = 'Ошибка входа: ' + err.message;
+        msg.className = 'message error';
+      }
+    });
+
+    // Регистрация клиента
+    document.getElementById('clientRegisterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = e.target.elements['regClientEmail'].value;
+      const password = e.target.elements['regClientPassword'].value;
+      try {
+        const resp = await fetch('/api/client/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (!resp.ok) {
+          const msg = document.getElementById('clientRegMsg');
+          msg.textContent = 'Ошибка регистрации: ' + await resp.text();
+          msg.className = 'message error';
+          return;
+        }
+        const msg = document.getElementById('clientRegMsg');
+        msg.textContent = 'Успешно! Теперь вы можете войти.';
+        msg.className = 'message success';
+        e.target.reset();
+        setTimeout(() => {
+          e.target.form.style.display = 'none';
+          document.getElementById('clientLoginForm').style.display = 'block';
+        }, 1500);
+      } catch (err) {
+        const msg = document.getElementById('clientRegMsg');
+        msg.textContent = 'Ошибка: ' + err.message;
+        msg.className = 'message error';
+      }
+    });
+
+    // Продавец вход
+    document.getElementById('sellerLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = e.target.elements['email'].value;
+      const password = e.target.elements['password'].value;
+      try {
+        const resp = await fetch('/api/seller/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ login: email, password })
+        });
+        if (!resp.ok) {
+          const msg = document.getElementById('sellerMsg');
+          msg.textContent = 'Неверный email или пароль';
+          msg.className = 'message error';
+          return;
+        }
+        const shop = await resp.json();
+        sessionStorage.setItem('userType', 'seller');
+        sessionStorage.setItem('sellerEmail', email);
+        sessionStorage.setItem('sellerPassword', password);
+        sessionStorage.setItem('shopId', shop.id);
+        sessionStorage.removeItem('clientName');
+        sessionStorage.removeItem('adminEmail');
+        showNotification(`Добро пожаловать, ${shop.name}!`, 'success');
+        window.location.href = '/seller.html';
+      } catch (err) {
+        const msg = document.getElementById('sellerMsg');
+        msg.textContent = 'Ошибка входа: ' + err.message;
+        msg.className = 'message error';
+      }
+    });
+
+    // Регистрация продавца
+    document.getElementById('sellerRegisterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const shopName = e.target.elements['shopName'].value;
+      const shopEmail = e.target.elements['shopEmail'].value;
+      const shopPassword = e.target.elements['shopPassword'].value;
+      try {
+        const resp = await fetch('/api/applications', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: shopName, email: shopEmail, password: shopPassword })
+        });
+        if (!resp.ok) {
+          throw new Error(await resp.text());
+        }
+        const msg = document.getElementById('shopRegMsg');
+        msg.textContent = 'Заявка отправлена! Ожидайте одобрения администратором.';
+        msg.className = 'message success';
+        e.target.reset();
+      } catch (err) {
+        const msg = document.getElementById('shopRegMsg');
+        msg.textContent = 'Ошибка: ' + err.message;
+        msg.className = 'message error';
+      }
+    });
+
+    // Админ вход
+    document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = e.target.elements['email'].value;
+      const password = e.target.elements['password'].value;
+      try {
+        const resp = await fetch(`/api/admin/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (!resp.ok) {
+          const msg = document.getElementById('adminMsg');
+          msg.textContent = 'Неверные учётные данные админа';
+          msg.className = 'message error';
+          return;
+        }
+        const admin = await resp.json();
+        sessionStorage.setItem('userType', 'admin');
+        sessionStorage.setItem('adminEmail', email);
+        sessionStorage.setItem('adminPassword', password);
+        sessionStorage.removeItem('clientName');
+        sessionStorage.removeItem('sellerEmail');
+        showNotification(`Добро пожаловать, админ!`, 'success');
+        window.location.href = '/admin.html';
+      } catch (err) {
+        const msg = document.getElementById('adminMsg');
+        msg.textContent = 'Ошибка входа: ' + err.message;
+        msg.className = 'message error';
+      }
+    });
+  </script>
+</body>
+</html>
