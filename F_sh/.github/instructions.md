@@ -1,4 +1,4 @@
-# Руководство для AI-агентов — FlowerShop (минимальный проект)
+# Руководство — FlowerShop (минимальный проект)
 
 Кратко: одностраничный фронтенд (в `wwwroot/`) и минимальный бэкенд на ASP.NET Core с EF Core + SQLite (файл базы: `flowers.db`). Фронтенд — чистый HTML/CSS/vanilla JS, API реализованы в `Program.cs`.
 
